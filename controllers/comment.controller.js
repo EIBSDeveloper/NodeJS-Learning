@@ -28,7 +28,7 @@ function index(req, res) {
   const userId = req.userData.userId;
   const postId = req.params.id;
   const categoryName = "";
-  console.log(userId);
+  console.log(req.userDetails);
 
   models.User.findByPk(userId)
     .then((result1) => {
