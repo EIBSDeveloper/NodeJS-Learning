@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  #DB_Service
+  db_service:
+    container_name: database_container
+    image: mysql:latest
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db_data:/data/db
+    environment:
+      -
