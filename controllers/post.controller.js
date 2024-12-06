@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const validator = require("fastest-validator");
 const models = require("../models");
 

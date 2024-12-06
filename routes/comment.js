@@ -1,16 +1,10 @@
 const express = require("express");
-const commentsController = require("../controllers/comment.controller");
-const checkAuthMidddleware = require("../middleware/check-auth");
+const { save, index } = require("../controllers/comment.controller");
+const { checkAuth } = require("../middleware/check-auth");
 const router = express.Router();
 
-router.post("/:id", checkAuthMidddleware.checkAuth, commentsController.save);
-router.get("/:id", checkAuthMidddleware.checkAuth, commentsController.index);
-// router.get("/:id", commentsController.show);
-// router.patch("/:id", checkAuthMidddleware.checkAuth, commentsController.update);
-// router.delete(
-//   "/:id",
-//   checkAuthMidddleware.checkAuth,
-//   commentsController.destory
-// );
+router.use(checkAuth);
+router.post("/:id", save);
+router.get("/:id", index);
 
 module.exports = router;
